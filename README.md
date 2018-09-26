@@ -1,3 +1,3 @@
-## spiros
+# spiros
 
-# Drawing spirograph patterns in Haskell.
+## Drawing spirograph patterns in Haskell.
