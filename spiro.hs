@@ -4,34 +4,36 @@ main :: IO ()
 main    
  = display 
         (InWindow "spiro"     -- window title
-        (800, 600)            -- window size
+        (700, 600)            -- window size
         (300, 150))           -- window position
-    black   -- background color
+    white   -- background color
     spiro   -- picture to display
 
 -- parameters
-pointSize = 160.0
-density = 50
-radius = 100
+pointSize = 1
+density = 2000
+innerRadius = 15
+outerRadius = 65
+distance = 100
+-- speed1 = 1
+-- speed2 = 1.5
 
 spiro :: Picture
-spiro = pictures $ drawCircle radius
+spiro = line (drawHypotrochoid (0, 0) 0)
 
-drawCircle :: Float -> [Picture]
-drawCircle radius = drawCircleH radius 0
-
-drawCircleH :: Float -> Float -> [Picture]
-drawCircleH radius angle
-    | angle >= 360.0 = []
-    | otherwise      = (translate x y $ color mixed $ Circle pointSize) : (drawCircleH radius (angle + step))
-        where 
-            x = radius * (cos $ toRad angle)
-            y = radius * (sin $ toRad angle)
-            step = 360 / density
-            mixed = mixColors angle (360 - angle) cerise darkblue
+drawHypotrochoid :: Point -> Float -> Path
+drawHypotrochoid (lpx, lpy) angle
+    | angle >= 4000 = []
+    | otherwise = (newX, newY) : drawHypotrochoid (newX, newY) (angle + step)
+    where
+        newX = (outerRadius - innerRadius) * (cos $ toRad angle) + distance * (cos (((outerRadius - innerRadius) / innerRadius) * (toRad angle)))
+        newY = (outerRadius - innerRadius) * (sin $ toRad angle) - distance * (sin (((outerRadius - innerRadius) / innerRadius) * (toRad angle)))
+        step = 360 / density
 
 toRad :: Float -> Float
 toRad angle = angle * pi / 180
+
+-- mixed angle color1 color2 = mixColors angle (360 - angle1) color1 color2
 
 -- colors
 cerise = light $ light $ makeColorI 255 7 79 255
