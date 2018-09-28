@@ -12,16 +12,16 @@ main
 -- parameters
 pointSize = 1
 density = 2000
-innerRadius = 80
-outerRadius = 72
-distance = 98
-loops = 11
+innerRadius = 1
+outerRadius = 112
+distance = 100
+loops = 2
 
 spiro :: Picture
 spiro = pictures
-    [  color lightGreen $ line (drawEpitrochoid (0, 0) 0)
-    ,  color citrone $ line (drawHypocycloid (0, 0) 0)
-    ,  color skin $ line (drawEpicycloid (0, 0) 0)
+    [ color darkRed $ line (drawEpitrochoid (0, 0) 0)
+    , color rosee $ line (drawHypocycloid (0, 0) 0)
+    , color lightGreen $ line (drawEpicycloid (0, 0) 0)
     , color darkblue $ line (drawHypotrochoid (0, 0) 0)
     ]
 
@@ -39,6 +39,8 @@ skin = makeColorI 255 204 153 255
 darkblue = makeColorI 0 80 221 255
 rosee = makeColorI 255 102 153 255
 babyBlue = makeColorI 115 254 255 255
+darkRed = makeColorI 153 0 36 255
+darkPurple = makeColorI 38 0 77 255
 
 drawHypotrochoid :: Point -> Float -> Path
 drawHypotrochoid (lpx, lpy) angle
