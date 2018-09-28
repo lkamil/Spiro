@@ -28,8 +28,6 @@ spiro = pictures
 toRad :: Float -> Float
 toRad angle = angle * pi / 180
 
--- mixed angle color1 color2 = mixColors angle (360 - angle1) color1 color2
-
 -- colors
 cerise = light $ makeColorI 255 7 79 255
 purple = light $ light $ makeColorI 0 0 153 255
