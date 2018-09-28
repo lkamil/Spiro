@@ -10,11 +10,11 @@ main
     spiro   -- picture to display
 
 -- parameters
-density = 2000      -- higher density results in smoother lines
-innerRadius = 1     -- radius of the inner circle
-outerRadius = 112   -- radius of the outer circle
-distance = 100      -- distance from the centre of the inner circle
-loops = 2           -- count of 360° loops
+innerRadius = 56    -- radius of the inner circle
+outerRadius = 57    -- radius of the outer circle
+distance    = 130   -- distance from the centre of the inner circle
+loops       = 40    -- count of 360° loops
+density     = 2000  -- higher density results in smoother lines
 
 -- spiro combines different trochoids
 spiro :: Picture
@@ -80,4 +80,3 @@ drawEpitrochoidH (lpx, lpy) angle
 
 toRad :: Float -> Float
 toRad angle = angle * pi / 180
-
