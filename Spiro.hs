@@ -28,7 +28,7 @@ spiro = pictures
 -- colors
 cerise = light $ makeColorI 255 7 79 255
 purple = light $ light $ makeColorI 0 0 153 255
-citrone = makeColorI 255 232 0 255
+lemon = makeColorI 255 232 0 255
 lightgreen = makeColorI 0 153 153 255
 skin = makeColorI 255 204 153 255
 darkblue = makeColorI 0 80 221 255
